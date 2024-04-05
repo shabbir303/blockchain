@@ -3,6 +3,7 @@ import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 
+
 const NavbarItems =({title, classProps})=>{
   return (
     <li className={`mx-4 cursor-pointer ${classProps} `}>
