@@ -4,9 +4,24 @@ import { BsInfoCircle } from "react-icons/bs";
 import { Loader } from "./";
 
 const newStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-500 text-white";
+ const Input =({placeholder , name, type ,value, handleChange})=>(
+  <input
+   placeholder={placeholder}
+   step="0.0001"
+   name={name}
+   type={type}
+   value={value}
+   onChange={(e)=>{handleChange(e, name)}}
+   className="my-2 w-full p-2 rounded-md border-none bg-transparent text-white outline-none white-glassmorphism"
+   
+  />
+);
 const Welcome = () => {
     const connectWallet = () => {
 
+    }
+    const handleSubmit = ()=>{
+    
     }
     return (
         <div className="flex w-full justify-center items-center">
@@ -49,10 +64,40 @@ const Welcome = () => {
                     <div className="p-3 justify-end items-start flex-col rounded-xl eth-card h-40 sm:w-72 w-full my-5 .white-glassmorphism">
                             <div className="flex justify-between flex-col w-full h-full">
                                 <div className="flex justify-between items-start">
-
+                                    <div className="w-10 h-10 rounded-full border-white border-[1px] flex justify-center items-center">
+                                        <SiEthereum className="text-white text-[20px]"/>
+                                        
+                                    </div>
+                                    <BsInfoCircle className="text-white"/>
+                                </div>
+                                <div>
+                                    <p className="text-white text-sm font-light">
+                                        Address
+                                    </p>
+                                    <p className="text-white text-lg font-semibold mt-1">
+                                        Ethereum
+                                    </p>
                                 </div>
                             </div>
                     </div>
+                    <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism ">
+                        <Input placeholder="Address To" name="address" type="text " handleChange={()=>{}} />
+                        <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={()=>{}} />
+                        <Input placeholder="Keyword (Gif)" name="keyword" type="text " handleChange={()=>{}} />
+                        <Input placeholder="Enter Message" name="message" type="text" handleChange={()=>{}} />
+                        <div className="w-full h-[1px] bg-gray-400 my-2"/>
+                            {
+                              false? <Loader/>:<button
+                              type="button"
+                              onClick = {handleSubmit}
+                              className="text-white w-full border-[1px] py-[5px] rounded-full border-slate-500 mt-[5px]"
+                              >
+                                    Send Now    
+                              </button>
+                            }
+                        
+                    </div>
+                    
                 </div>
             </div>
         </div>
